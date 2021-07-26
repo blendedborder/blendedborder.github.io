@@ -1,267 +1,691 @@
-# Millennial
+# bulma-clean-theme
 
-Millennial is a minimalist Jekyll theme for running a simple, clean, content-focused publishing platform for your publication site or blog through [Github Pages](https://pages.github.com/), or on your own server. Everything that you will ever need to know about this Jekyll theme is included in the README below, which you can also find in [the demo site](https://lenpaul.github.io/Millennial/).
+[![Gem Version](https://badge.fury.io/rb/bulma-clean-theme.svg)](https://badge.fury.io/rb/bulma-clean-theme)
+![Gem](https://img.shields.io/gem/dt/bulma-clean-theme.svg)
 
-![alt text](https://user-images.githubusercontent.com/8409329/32801138-33a72030-c94a-11e7-8a62-6184e6df5a8f.png "Millennial Demo Image")
+This is a clean and simple Jekyll Theme built with the [Bulma](https://bulma.io/) framework, providing a modern-looking site to start with. 
 
-## Notable features
+The theme uses [Alpine.js](https://github.com/alpinejs/alpine) for its interactive components, such as mobile navbar and notifications.
 
-* Compatible with GitHub Pages.
+## Contents
 
-* Support for Jekyll's built-in Sass/SCSS preprocessor and data files for making customizing easier.
+* [Installation](#installation)
+* [Usage](#usage)
+    * [Lang](#lang)
+    * [Pages](#pages)
+        * [Page Hero](#page-hero)
+        * [Table Of Contents](#table-of-contents)
+    * [Posts](#posts)
+    * [Navigation](#navigation)
+    * [Colours and Styles](#colours-and-styles)
+    * [Sidebar Visibility](#sidebar-visibility)
+    * [Menubar](#menubar)
+    * [Tabs](#tabs)
+    * [Notifications](#notifications)
+    * [Tags](#tags)
+    * [Google Analytics](#google-analytics)
+    * [Footer](#footer)
+    * [Products](#products)
+    * [Scripts](#scripts)
+    * [Callouts](#callouts)
+    * [Favicon](#favicon)
+    * [Showcases](#showcases)
+    * [Sponsors](#sponsors)
+    * [Gallery](#gallery)
+    * [Disqus](#disqus)
+    * [Recipe](#recipe)
+* [Contributing](#contributing)
+* [Development](#development)
+* [Licence](#licence)
 
-* [Google Analytics](https://www.google.com/analytics/) support.
-
-* Commenting support powered by [Disqus](https://disqus.com/).
-
-* Optimized for search engines.
-
-* LaTeX support through [MathJax](https://www.mathjax.org/).
-
-## Table of Contents
-
-1. [Introduction](#introduction)
-   1. [What is Jekyll](#what-is-jekyll)
-   2. [Never Used Jeykll Before?](#never-used-jekyll-before)
-2. [Installation](#installation)
-   1. [GitHub Pages Installation](#github-pages-installation)
-   2. [Local Installation](#local-installation)
-   3. [Directory Structure](#directory-structure)
-   4. [Starting From Scratch](#starting-from-scratch)
-3. [Configuration](#configuration)
-   1. [Sample Posts](#sample-posts)
-   2. [Site Variables](#site-variables)
-   3. [Adding Menu Pages](#adding-menu-pages)
-   4. [Posts](#posts)
-   5. [Layouts](#layouts)
-   6. [YAML Front Block Matter](#yaml-front-block-matter)
-4. [Features](#features)
-   1. [Design Considerations](#design-considerations)
-   2. [Disqus](#disqus)
-   3. [Google Analytics](#google-analytics)
-   4. [RSS Feeds](#rss-feeds)
-   5. [Social Media Icons](#social-media-icons)
-   6. [MathJax](#mathjax)
-   7. [Syntax Highlighting](#syntax-highlighting)
-   8. [Markdown](#markdown)
-5. [Everything Else](#everything-else)
-6. [Contributing](#Contributing)
-7. [Questions?](#questions)
-8. [Credits](#credits)
-9. [License](#license)
-
-## Introduction
-
-Millennial is a Jekyll theme that was built to be 100% compatible with [GitHub Pages](https://pages.github.com/). If you are unfamiliar with GitHub Pages, you can check out [their documentation](https://help.github.com/categories/github-pages-basics/) for more information. [Jonathan McGlone's guide](http://jmcglone.com/guides/github-pages/) on creating and hosting a personal site on GitHub is also a good resource.
-
-### What is Jekyll?
-
-Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Basically, Jekyll takes your page content along with template files and produces a complete website. For more information, visit the [official Jekyll site](https://jekyllrb.com/docs/home/) for their documentation. Codecademy also offers a great course on [how to deploy a Jekyll site](https://www.codecademy.com/learn/deploy-a-website) for complete beginners.
-
-### Never Used Jekyll Before?
-
-The beauty of hosting your website on GitHub is that you don't have to actually have Jekyll installed on your computer. Everything can be done through the GitHub code editor, with minimal knowledge of how to use Jekyll or the command line. All you have to do is add your posts to the `_posts` directory and edit the `_config.yml` file to change the site settings. With some rudimentary knowledge of HTML and CSS, you can even modify the site to your liking. This can all be done through the GitHub code editor, which acts like a content management system (CMS).
 
 ## Installation
 
-### GitHub Pages Installation
+**This theme requires Jekyll 3.9 to be compatible with GitHub Pages.**
 
-To start using Jekyll right away with GitHub Pages, [fork the Millennial repository on GitHub](https://github.com/LeNPaul/Millennial/fork). From there, you can rename your repository to `USERNAME.github.io`, where `USERNAME` is your GitHub username, and edit the `settings.yml` file in the `_data` folder to your liking. Ensure that you have a branch named `gh-pages`. Your website should be ready immediately at 'http://USERNAME.github.io'. Note: if you are hosting several sites under the same GitHub username, then you will have to use [Project Pages instead of User Pages](https://help.github.com/articles/user-organization-and-project-pages/) - just change the repository name to something other than 'http://USERNAME.github.io'.
+Add this line to your Jekyll site's `Gemfile`:
 
-Head over to the `_posts` directory to view all the posts that are currently on the website, and to see examples of what post files generally look like. You can simply just duplicate the template post and start adding your own content.
-
-### Local Installation
-
-For a full local installation of Millennial, [download your own copy of Millennial](https://github.com/LeNPaul/Millennial/archive/gh-pages.zip) and unzip it into it's own directory. From there, open up your favorite command line tool, enter `bundle install`, and then enter `jekyll serve`. Your site should be up and running locally at [http://localhost:4000](http://localhost:4000).
-
-### Directory Structure
-
-If you are familiar with Jekyll, then the Millennial directory structure shouldn't be too difficult to navigate. The following some highlights of the differences you might notice between the default directory structure. More information on what these folders and files do can be found in the [Jekyll documentation site](https://jekyllrb.com/docs/structure/).
-
-```bash
-Millennial/
-├── _data                      # Data files
-|  └── settings.yml            # Theme settings and custom text
-├── _includes                  # Theme includes
-├── _layouts                   # Theme layouts (see below for details)
-├── _posts                     # Where all your posts will go
-├── assets                     # Style sheets and images are found here
-|  ├── css                     # Style sheets go here
-|  |  └── _sass                # Folder containing SCSS files
-|  |  └── main.scss            # Main SCSS file
-|  |  └── syntax.css           # Style sheet for code syntax highlighting
-|  └── img                     # Images go here
-├── pages                      # Category pages
-├── _config.yml                # Site build settings
-├── Gemfile                    # Ruby Gemfile for managing Jekyll plugins
-├── index.md                   # Home page
-├── LICENSE.md                 # License for this theme
-├── README.md                  # Includes all of the documentation for this theme
-└── rss-feed.xml               # Generates RSS 2.0 file which Jekyll points to
+```ruby
+gem "bulma-clean-theme"
 ```
 
-### Starting From Scratch
+And add this line to your Jekyll site's `_config.yml`:
 
-To completely start from scratch, simply delete all the files in the `_posts`, `assets/img`, and `pages` folder, and add your own content. You may also replace the `README.md` file with your own README. Everything in the `_data` folder and `_config.yml` file can be edited to suit your needs. You may also change the `favicon.ico` file to your own favicon.
+```yaml
+theme: bulma-clean-theme
+```
 
-## Configuration
+And then execute:
 
-### Sample Posts
+    $ bundle
 
-Visit the [the demo site](https://lenpaul.github.io/Millennial/) to find sample posts that show what different types of text formatting look like. You can find these posts in the `_posts` folder, which show what the best practices for setting up your own site are.
+Or install it yourself as:
 
-### Site Variables
+    $ gem install bulma-clean-theme
 
-To change site build settings, edit the `_config.yml` file found in the root of your repository, which you can tweak however you like. More information on configuration settings and plugins can be found on [the Jekyll documentation site](https://jekyllrb.com/docs/configuration/). This is also where you will be able to customize the title, description, and the author/owner of your site.
+## Usage
 
-If you are hosting your site on GitHub Pages, then committing a change to the `_config.yml` file will force a rebuild of your site with Jekyll. Any changes made should be viewable soon after. If you are hosting your site locally, then you must run `jekyll serve` again for the changes to take place.
+### Lang
 
-In the `settings.yml` file found in the `_data` folder, you will be able to customize your site settings, such as setting Disqus comments, Google Analytics, what shows up in your menu, and social media information.
+The html lang attribute is set to `en` by default but you can override this in the _config.yml file `lang: en`
 
-### Adding Menu Pages
+### Pages
 
-The menu pages are found in the `menu` folder in the root directory, and can be added to your menu in the `settings.yml` file.
+Create your pages as individual Markdown files and use `layout: page` for normal pages. Set the page's title and subtitle in the front matter and it will appear in the hero.
+
+#### Page Hero
+
+**New in 0.2** - Heros can now display a background image if you provide a `hero_image: /path/to/image.jpg` setting in your page front matter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your site's `_config.yml`.
+
+You can also set the height of the hero by providing a Bulma hero height class in your front matter, such as `hero_height: is-fullwidth`. If you do not provide this, it will revert to `is-medium`.
+
+**New in 0.5.4** - If you would like to add a call to action button in the hero then add `hero_link` and `hero_link_text` to the page's front matter.
+
+**New in 0.5.7** - If you would like to hide the hero, you can set `hide_hero: true` in the page's front matter.
+
+**New in 0.7.1** - If you would like to darken the hero so the title stands out more, you can set `hero_darken: true` in the page's front matter. You can overwrite the default background colour by setting the `$hero-darken` sass variable.
+
+#### Table Of Contents
+
+**New in 0.5.8** - If you want to display a table of contents (toc) then add `toc: true` to your page's front matter. You can customise the default table of contents title by setting `toc_title: My Custom Title` in the page's front matter. 
+
+**New in 0.10.3** - If you would prefer to display the contents in the menubar at the side of the page, then use `menubar_toc: true` instead of `toc: true`. This will also override the page's `menubar` setting.
 
 ### Posts
 
-You will find example posts in your `_posts` directory. Go ahead and edit any post and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+If you want posts, create a `_posts` directory to store your posts as per normal Jekyll usage, with `layout: post`. Next, create a `blog` directory with an index.html file that has `layout: blog`.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention of `YYYY-MM-DD-name-of-post.md` and includes the necessary front matter. Take a look at any sample post to get an idea about how it works. If you already have a website built with Jekyll, simply copy over your posts to migrate to Millennial.
+Set `paginate` and `paginate_path` in your site's `_config.yaml` to configure the posts per page and blog pagination path.
 
-### Layouts
-
-There are two main layout options that are included with Millennial: post and page. Layouts are specified through the [YAML front block matter](https://jekyllrb.com/docs/frontmatter/). Any file that contains a YAML front block matter will be processed by Jekyll. For example:
-
+```yaml
+paginate: 5
+paginate_path: "/blog/page:num"
 ```
----
+
+**New in 0.2** - It will now display an image in the blog page if you set `image: /path/to/image.jpg` in your post's or page's front matter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your site's `_config.yml`.
+
+You can also set the height of the hero by providing a Bulma hero height class in your front matter, such as `hero_height: is-fullwidth`. If you do not provide this, it will revert to `is-medium`.
+
+#### Post Excerpt and Summary
+
+By default, the blog page and the latest posts will use the automatically generated post excerpt. If you would like to override this you can set the summary in the post's front matter. 
+
+```yaml
 layout: post
-title: "Example Post"
----
+title: The post title
+summary: |-
+    This is the custom summary for the post.
+
+    It can be in **Markdown format** if required.
 ```
 
-Examples of what posts looks like can be found in the `_posts` directory, which includes this post you are reading right now. Posts are the basic blog post layout, which includes a header image, post content, author name, date published, social media sharing links, and related posts.
+#### Social Share Buttons
 
-Pages are essentially the post layout without any of the extra features of the posts layout. An example of what pages look like can be found at the [documentation page](https://lenpaul.github.io/Millennial/pages/documentation.html).
+Share buttons will be displayed on your posts unless you hide them by adding `hide_share_buttons: true` to your config file.
 
-In addition to the two main layout options above, there are also custom layouts that have been created for the [home page](https://lenpaul.github.io/Millennial/) and the [contacts page](https://lenpaul.github.io/Millennial/pages/contact.html). These are simply just page layouts with some [Liquid template code](https://shopify.github.io/liquid/). Check out the `index.html` file in the root directory for what the code looks like.
 
-### YAML Front Block Matter
+### Navigation
 
-The recommended YAML front block is:
+For the top navigation, create a navigation.yml file in the `_data` directory with the following format with the pages you want to include in the top navigation. You can now also add items to a dropdown menu.
+
+```yaml
+- name: Page 1
+  link: /page-1/
+- name: Blog
+  link: /blog/
+  dropdown: 
+    - name: Page 2
+      link: /page-2/
+```
+
+For the current page to have an active class, ensure the `link:` format matches your [permalink](https://jekyllrb.com/docs/permalinks/#extensionless-permalinks) format. The above example will work with a `permalink: pretty` setting in your `_config.yml`.
+
+#### Fixed Navbar
+
+To have a fixed navbar on the top or bottom of your site, you can set `fixed_navbar: top` or `fixed_navbar: bottom` respectively in your
+`_config.yml`.
+
+### Colours and Styles
+
+To overwrite the primary theme colour, set a sass variable in `assets/css/app.scss` before importing `main`.
 
 ```
 ---
-layout:
-title:
-author:
-categories:
-tags: []
-image:
 ---
+$primary: #333333;
+// Import Main CSS file from theme
+@import "main";
 ```
 
-`layout` specifies which layout to use, `title` is the page or post title, `categories` can be used to better organize your posts, `tags` are used when generating related posts based on the topic of the post, and `image` specifies which images to use. Have a look at some posts in the `_posts` directory to see how these variables are set.
+You can overwrite any of the [Bulma initial variables](http://versions.bulma.io/0.7.0/documentation/overview/variables/) in this way as long as they are declared before the `@import "main";`.
 
-## Features
+#### Theme Color Meta Tag
 
-### Design Considerations
+If you want to update the theme color meta tag then set `theme_color: '#333333'` in your `_config.yml` file. 
 
-Millennial was designed to be a minimalist theme in order for the focus to remain on your content. For example, links are signified mainly through an underline text-decoration, in order to maximize the perceived affordance of clickability (I originally just wanted to make the links a darker shade of grey).
+### Sidebar Visibility
+
+**New in 0.2** - If you want to show the sidebar with latest posts then set `show_sidebar: true` in the page's frontmatter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your site's `_config.yml`.
+
+### Menubar
+
+**New in 0.3** - The menubar gets its content from a data file in your site's `_data` directory. Simply set the name of your data file in the page's menubar setting in the frontmatter. 
+
+```yaml
+show_sidebar: false
+menubar: example_menu
+```
+
+You will probably want to disable `show_sidebar`. Otherwise there will be little room for the page content. 
+
+#### Creating a menubar data file
+
+Create a data file in the `_data` directory and use the following format (if using yml).
+
+```yaml
+- label: Example Menu
+  items:
+    - name: Home
+      link: /
+    - name: Pages
+      link: #
+      items:
+        - name: Page With Sidebar 
+          link: /page-1/
+        - name: Page Without Sidebar
+          link: /page-2/
+        - name: Page With Menubar
+          link: /page-3/
+    - name: Blog
+      link: /blog/
+```
+
+For the current page to have an active class, ensure the `link:` format matches your [permalink](https://jekyllrb.com/docs/permalinks/#extensionless-permalinks) format. The above example will work with `permalink: pretty` setting in your `_config.yml`.
+
+#### Multiple menus
+
+You may make multiple menus in the same file, separated by labels.
+
+```yaml
+- label: Menu Label
+  items:
+    - name: Example item
+      link: /example-item/
+- label: Second Menu Label
+  items:
+    - name: Parent Item
+      link: /parent-item/
+      items:
+        - name: Sublink 
+          link: /sublink/
+        - name: Sublink 2
+          link: /sublink2/
+- label: Third Menu Label
+  items:
+    - name: Another example item
+      link: /another-example-item/
+```
+
+### Tabs
+
+**New in 0.4** - `tabs` gets its content from a data file in your site's `_data` directory. Simply set the name of your data file in the page's menubar setting in the front matter. 
+
+```yaml
+title: Page with tabs
+subtitle: Demo page with tabs
+layout: page
+show_sidebar: false
+menubar: example_menu
+tabs: example_tabs
+```
+
+Tabs can be used in conjunction with menubar and/or sidebar if you wish. 
+
+#### Creating a tabs data file
+
+Create a data file in the `_data` directory and use the following format (if using yml).
+
+```yaml
+alignment: is-left
+style: is-boxed
+size: is-large
+items:
+  - name: Tabs
+    link: /page-4/
+    icon: fa-smile-wink
+  - name: Sidebar
+    link: /page-1/
+    icon: fa-square
+  - name: No Sidebar
+    link: /page-2/
+    icon: fa-ellipsis-v
+  - name: Menubar
+    link: /page-3/
+    icon: fa-bars
+```
+
+#### Settings
+
+You can control the alignment, style, and size of tabs by using the relevant [Bulma tabs classes](https://bulma.io/documentation/components/tabs/). 
+
+#### Active Tab Highlighting
+
+It will automatically mark the active tab based on the current page.
+
+#### Icons
+
+You can add icons to your tab by passing in the [Font Awesome icon class](https://fontawesome.com/icons?d=gallery). If you don't wish to show icons then simply omit the option from your yaml file.
+
+### Notifications
+
+You can include a notification in a page or post using the below include. The message is required but the status defaults to 'is-warning' and the icon defaults to 'fas fa-exclamation-circle', but can be overwritten by setting the values in the includes. The message can also be written in Markdown format.
+
+```liquid
+{% include notification.html message="This is the message for the notification" %}
+```
+
+#### Dismissible Notifications
+
+To set a notification to be dismissible, set dismissible to 'true'
+
+```liquid
+{% include notification.html
+message="This notification is dismissable"
+dismissable="true" %}
+```
+
+#### Iconless Notifications
+
+Omit the icon by setting icon to 'false'
+
+```liquid
+{% include notification.html
+message="This notification does not have an icon."
+icon="false" %}
+```
+
+### Tags
+
+To include a tag use the following include. 
+
+```liquid
+{% include tag.html tag="The tag text" %}
+```
+
+You can overwrite the default style (is-primary) by passing in the style in the include tag.
+
+```liquid
+{% include tag.html tag="The tag text" style="is-light" %}
+```
+
+### Google Analytics 
+
+**New in 0.2** - To enable Google Analytics add `google_analytics: UA-xxxxxxxx` to your `_config.yml` replacing the UA-xxxxxxxx with your Google Analytics property.
+
+### Footer
+
+**New in 0.4.1** - To add some footer links, create a yaml file in the `_data` directory using the following format.
+
+```yaml
+- name: Blog
+  link: /blog/
+- name: About
+  link: /about/
+- name: Privacy Policy
+  link: /privacy-policy/
+```
+
+Then add the name of your yaml file (without the .yml extension) into the `footer_menu` setting in the `_config.yml`.
+
+```yaml
+footer_menu: example_footer_menu
+```
+
+#### Hiding the footer
+
+**New in 0.5.2** - If you would like to hide the footer on a particular page then set `hide_footer: true` in the page's frontmatter.
+
+### Products
+
+**New in 0.5** - Now you can add simple product pages to your site using collections. 
+
+#### Product pages
+
+Start by creating a `_products` directory to hold your product pages and create a new page for each product, such as `product1.md`. In the front matter for this page you can set the standard settings, such as your title, subtitle, description (for meta-description), hero_image, as well as the additional product settings such as price, product_code, image, features, and rating. 
+
+```yaml
+title: Product 1 Name
+subtitle: Product 1 tagline here
+description: This is a product description
+hero_image: /img/hero-img.jpg
+product_code: ABC124
+layout: product
+image: https://via.placeholder.com/640x480
+price: £1.99 + VAT
+features:
+    - label: Great addition to any home
+      icon: fa-location-arrow
+    - label: Comes in a range of styles
+      icon: fa-grin-stars
+    - label: Available in multiple sizes
+      icon: fa-fighter-jet
+rating: 3
+```
+
+The text you write for the page content will be displayed as the product description. 
+
+Next, add the following to your `_config.yml` to use collections to process the product pages and output them as individual pages. 
+
+```yaml
+collections:
+  products: 
+    output: true
+    layout: product
+    image: https://via.placeholder.com/800x600
+    show_sidebar: false
+```
+
+You can also set default product page values here if you like, such as the layout or image. 
+
+#### Product Reviews
+
+To add reviews to your product page, create a `reviews` directory in the `_data` directory and add a yaml file with the name of the product_code from the product page, for example `_data/reviews/ABC124.yml`. Create the reviews using the following format:
+
+```yaml
+- name: Mr E Xample
+  rating: 4
+  title: Great product, highly recommended
+  date: 2019-01-01
+  avatar: https://bulma.io/images/placeholders/128x128.png
+  description: >
+    The product worked really well. I would recommend this to most people to use. Delivery was quick and reasonable. 
+    Would recommend this to my friends. 
+- name: Mrs R E View
+  rating: 5
+  title: Nice, really liked this
+  date: 2019-02-02
+  description: >
+    The product worked exactly as described. 
+```
+
+If you don't want to display an avatar image then a default user icon will be displayed. If you don't want to display a rating then omit it from the yaml file.
+
+#### Product Category Page
+
+To create a page listing your products you will need to create a product category page. Create a page, for example `products.md`, with the `layout: product-category` in the frontmatter. You can set the sort order of the products using `sort: title` to sort by the title, or by any setting in your product pages, such as price, rating or any custom frontmatter tags you wish to set. 
+
+```yaml
+title: Products
+subtitle: Check out our range of products
+layout: product-category
+show_sidebar: false
+sort: title
+```
+
+### Scripts
+
+**New in 0.5.2** - There are two new files within the includes directory called `head-scripts.html` and `footer-scripts.html`. These are empty files by default but allow you to add any additional JavaScript to your site, such as the script for AddThis share buttons, in the `<head>` or after the `<footer>` of the page.
+
+### Callouts
+
+**New in 0.5.4** - You can now add callouts to a page to make a landing page style layout. 
+
+* [Example of page with callouts - notice the 'calls to action' below the header.](http://www.csrhymes.com/bulma-clean-theme/landing/)
+
+#### Create a callout data file
+
+Create a data file following the below format. The style is for classes to set the background colour and sizes you would like to use of the Bulma hero container for the callouts. 
+
+**New in 0.5.7** - You can set the height of the callouts in the data file, such as `is-small`, `is-medium`, or `is-large`. If unset it will be `is-medium` by default.
+
+The items have six fields, but only the title and subtitle are required. If the icon is a brand icon, such as GitHub in the below example, set `icon_brand: true`.
+
+```yaml
+style: is-light
+height: is-medium
+items:
+  - title: Example callout 1
+    subtitle: Example subtitle 1
+    icon: fa-github
+    icon_brand: true
+    description: >
+      The example description text goes here and can be multiple lines.
+
+      For example, such as this. 
+    call_to_action_name: Call to action 1
+    call_to_action_link: /page-1/
+```
+
+#### Set the callouts in the frontmatter
+
+To display the callouts on your page, add a `callouts` property in the frontmatter and set it to the name of your data file without the extension.
+
+```yaml
+layout: page
+title: Example Landing Page
+subtitle: This is an example landing page
+callouts: example_callouts
+```
+
+### Favicon
+
+The default favicon path is `{{ site.baseurl }}/favicon.png` but you can overwrite it in the site's `_config.yml` like this `favicon: /path/to/favicon.png`
+
+### Showcases
+
+Showcases allow you to display your work to others using a simple layout. 
+
+#### Creating A Showcase Datafile
+
+Create a datafile in your site's `_data` directory in the following format. Subtitle, features and tags are not required. 
+
+The description text accepts Markdown and is run through the markdownify filter on the page.
+
+The `image_ratio` will default to `is-16by9` if it is not defined and accepts the [Bulma image](https://bulma.io/documentation/elements/image/) classes.
+
+To display GitHub Stars, Forks, and Watchers badges, add your GitHub user and repo name to the `github` setting, such as `chrisrhymes/bulma-clean-theme`.
+
+To change the default styles of the features, set `features_styles`. This uses the styles from [bulma-block-list](https://www.csrhymes.com/bulma-block-list/) npm package.
+
+```yaml
+intro: |-
+  This is some introduction text for the showcases.
+  
+  ## Example Heading
+  It can convert Markdown format
+
+items:
+  - title: Example showcase item
+    subtitle: Example subtitle
+    description: |-
+      This is the example description for this item that you are showcasing and has an image, title, description, tags and a link.
+    features:
+      - This is a feature
+      - This is a feature
+    features_styles: is-centered is-outlined is-primary
+    image: https://via.placeholder.com/1024x788
+    image_ratio: is-16by9
+    link: http://www.example.com
+    link_text: View example
+    tags: PHP,CSS,JavaScript
+    github: user/repo-name
+```
+
+#### Displaying the Showcase
+
+Set the showcase in the page's front matter to be the name of the showcase data file without the extension. This gives you the ability to create multiple showcases to be used on different pages. 
+
+```yaml
+title: Showcase
+subtitle: An example showcase page
+layout: page
+showcase: showcase_example
+show_sidebar: false
+```
+
+### Sponsors
+
+#### Sponsor link in navbar
+
+If you have a GitHub sponsors account set up, you can add your username to `gh_sponsor` in the `_config.yml` file and it will display a link to your profile on the right of the navbar.
+
+```yaml
+gh_sponsor: chrisrhymes
+```
+
+#### Creating a Sponsors Datafile
+
+If you would like to create a page to thank your sponsors then create a data file, such as my_sponsors.yml file with the following structure:
+
+```yaml
+- tier_name: Platinum Sponsors
+  size: large
+  description: |-
+    This is the description for the Platinum Tier
+  sponsors:
+    - name: Dave McDave
+      profile: https://github.com/
+    - name: Sarah Lee-Cheesecake
+      profile: https://github.com/
+- tier_name: Gold Sponsors
+  description: |-
+    This is the description for the Gold Tier
+  sponsors:
+    - name: Dave McDave
+      profile: https://github.com/
+```
+
+The `tier_name` and `description` are required. The `size` is not required, but can be overwritten to 'large' or 'small' to increase or decrease the size of the box and the text size.
+ 
+The sponsors require a name, but not a profile link.
+
+#### Displaying the Sponsors
+
+To display the sponsors on your page, set the sponsors to the filename without the extension in the page's front matter
+
+```yaml
+layout: page
+title: My Sponsors Page
+sponsors: my_sponsors
+```
+
+### Gallery
+
+Display a simple image gallery on a page, with image descriptions.
+
+#### Create an image gallery data file
+
+Start by creating a gallery data file using the below format, for example `my_gallery.yml`. 
+
+```yaml
+- title: Image Gallery Title
+  images:
+    - link: https://via.placeholder.com/800x450
+      large_link: https://via.placeholder.com/1200x675
+      alt: The alt text for the image
+      description: |-
+        The image description can be written in **Markdown** if required
+      ratio: is-16by9
+    - link: https://via.placeholder.com/800x600
+      large_link: https://via.placeholder.com/1200x675
+      alt: The alt text for the image
+      description: The image description
+      ratio: is-4by3
+```
+
+* If a ratio is not provided it will default to 16 by 9. Use [Bulma image](https://bulma.io/documentation/elements/image/) classes to define the image ratio required. 
+* The description can be plaintext or it can be Markdown if required. 
+* The alt will be used as the image's alt text.
+* The large_link displays in a modal when the image is clicked.
+
+#### Displaying the gallery
+
+In your page's front matter add a gallery with the datafile's filename without the extension.
+
+```yaml
+layout: page
+title: My Image Gallery
+gallery: my_gallery
+```
 
 ### Disqus
 
-Millennial supports comments at the end of posts through [Disqus](https://disqus.com/). In order to activate Disqus commenting, set `disqus.comments` to true in the `_data/settings.yml` file. If you do not have a Disqus account already, you will have to set one up, and create a profile for your website. You will be given a `disqus_shortname` that will be used to generate the appropriate comments sections for your site. More information on [how to set up Disqus](http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages/).
+Disqus comments are available for posts. To be able to use them, you need to set your disqus shortname in `_config.yml`. 
+```
+disqus.shortname=<example-com.disqus.com>  
+```
 
-### Google Analytics
+Need help finding your Disqus Shortname?  [See this helpful post by Disqus on the matter.](https://help.disqus.com/en/articles/1717111-what-s-a-shortname)  
 
-It is possible to track your site statistics through [Google Analytics](https://www.google.com/analytics/). Similar to Disqus, you will have to create an account for Google Analytics, and enter the correct Google ID for your site under `google-ID` in the `settings.yml` file. More information on [how to set up Google Analytics](https://michaelsoolee.com/google-analytics-jekyll/). Note: If you are not using Google Analytics, please change `google-ID` to an empty string.
+Then you need to set your Jekyll environment to production: 
 
-### RSS Feeds
+```JEKYLL_ENV=production bundle exec jekyll build```. 
 
-Atom is supported by default through [jekyll-feed](https://github.com/jekyll/jekyll-feed). With jekyll-feed, you can set configuration variables such as 'title', 'description', and 'author', in the `_config.yml` file.
+Comments are enabled by default. If you want to disable them, set in the front matter this setting: 
 
-RSS 2.0 is also supported through [RSS auto-discovery](http://www.rssboard.org/rss-autodiscovery). The `rss-feed.xml` file (based on the template found at [jekyll-rss-feeds](https://github.com/snaptortoise/jekyll-rss-feeds)) that the feed path points to when using RSS 2.0 is automatically generated based on the appropriate configuration variables found in `_data/settings.yml`.
+```markdown
+comments: false
+```
 
-To use RSS 2.0, ensure the following is done:
+### Recipe
 
-* Uncomment the last two lines in the `_config.yml` file.
+You can make a single page using the recipe layout, or you can use it in your blog by specifying the `layout: recipe` instead of post.
 
-* In `_data/settings.yml`, under 'social', comment out the rss-square that points to `feed.xml`, and uncomment the rss-square that points to `rss-feed.xml`.
+You probably want to hide the sidebar, so the recipe takes up the whole page width. If you add any additional content to the page it will appear below the recipe details.
 
-* In `_includes/head.html`, comment out `{% feed_meta %}` and uncomment the line under the RSS 2.0 comment.
+Create a list in the front matter for the ingredients, then the method steps and it will automatically be added to the page.
 
-### Social Media Icons
+The front matter will also be added to the page as schema data that is used by search engines. Please see the below example for all of the schema options available.
 
-All social media icons are courtesy of [Font Awesome](http://fontawesome.io/). You can change which icons appear, as well as the account that they link to, in the `settings.yml` file in the `_data` folder.
-
-### MathJax
-
-Millennial comes out of the box with [MathJax](https://www.mathjax.org/), which allows you to display mathematical equations in your posts through the use of [LaTeX](http://www.andy-roberts.net/writing/latex/mathematics_1).
-
-### Syntax Highlighting
-
-Millennial provides syntax highlighting through [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/). Syntax highlighting allows you to display source code in different colors and fonts depending on what programming language is being displayed. You can find the full list of supported programming languages [here](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers). Another option is to embed your code through [Gist](https://en.support.wordpress.com/gist/).
-
-### Markdown
-
-As always, Jekyll offers support for GitHub Flavored Markdown, which allows you to format your posts using the [Markdown syntax](https://guides.github.com/features/mastering-markdown/). Examples of these text formatting features can be seen below. You can find this post in the `_posts` directory as well as the `README.md` file.
-
-## Everything Else
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+```yaml
+layout: recipe
+title: An Example Recipe Page
+subtitle: Tastes great and easy to cook
+author: CS Rhymes
+date: 2021-03-02
+show_sidebar: false
+image: /bulma-clan-theme/img/recipe-example.jpg
+hero_image: /bulma-clean-theme/img/recipe-example.jpg
+ingredients:
+    - 1tsp vegetable oil
+    - 2 Carrots, finely diced
+    - 1 Onion, finely dices
+    - 1 Celery stick, finely diced
+    - 2 Cloves of Garlic, crushed
+    - 400g lean Minced Beef
+    - 400g tin of Chopped Tomatoes
+    - 2tbsp Tomato Puree
+    - 300ml Beef Stock
+    - 1tsp Worcestershire Sauce
+    - 2tsp Italian Herbs
+    - Salt and Pepper
+method:
+    - Heat the vegetable oil in a large pan on a medium heat, then add the carrots, onion and celery and cook for five to ten minutes to soften, stirring occasionally
+    - Add the crushed garlic and cook for 2 more minutes, stiffing occasionally
+    - Add the minced beef to the pan, breaking it up with a wooden spoon and cook until browned off
+    - Add the chopped tomatoes, tomato puree, beef stock, worcestershire sauce and italian herbs and stir. Add a pinch of salt and pepper then stir through
+    - Bring to a gentle simmer and cook for 30 minutes
+prep_time: PT0H10M
+cook_time: PT1H
+total_time: PT1H10M
+keywords: recipe,cooking
+recipe_yield: 4
+recipe_category: Main course
+recipe_cuisine: Italian
+calories: 500 calories
+```
 
 ## Contributing
 
-If you would like to make a feature request, or report a bug or typo in the documentation, then please [submit a GitHub issue](https://github.com/LeNPaul/Millennial/issues/new). If you would like to make a contribution, then feel free to [submit a pull request](https://help.github.com/articles/about-pull-requests/) - as a bonus, I will credit all contributors below! If this is your first pull request, it may be helpful to read up on the [GitHub Flow](https://guides.github.com/introduction/flow/) first.
+Bug reports and pull requests are welcome on GitHub at https://github.com/chrisrhymes/bulma-clean-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-Millennial has been designed as a base for users to customize and fit to their own unique needs. Please keep this in mind when requesting features and/or submitting pull requests. Some examples of changes that I would love to see are things that would make the site easier to use, or better ways of doing things. Please avoid changes that do not benefit the majority of users.
+## Development
 
-## Questions?
+To set up your environment to develop this theme, run `bundle install`.
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Millennial%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/Millennial/issues/new).
-
-## Credits
-
-### Creator
-
-#### Paul Le
-
-* [www.lenpaul.com](http://lenpaul.com)
-
-* [Twitter](https://twitter.com/paululele)
-
-* [GitHub](https://github.com/LeNPaul)
-
-### Contributors
-
-* [b-morawiec](https://github.com/b-morawiec)
-
-* [JainVikas](https://github.com/JainVikas)
-
-* [mschaeffner](https://github.com/mschaeffner)
-
-* [cfe316](https://github.com/cfe316)
-
-* [JeremyGonzales](https://github.com/JeremyGonzales)
-
-### Icons + Demo Images
-
-* [Death to Stock](https://deathtothestockphoto.com/)
-
-* [Font Awesome](http://fontawesome.io/)
-
-### Other
-
-* [Jekyll](https://jekyllrb.com/)
-
-* [Free Code Camp](https://www.freecodecamp.org)
-
-* [Khan Academy](https://www.khanacademy.org/)
+Your theme is set up just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
 ## License
 
-Open sourced under the [MIT license](https://github.com/LeNPaul/Millennial/blob/gh-pages/LICENSE.md).
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
